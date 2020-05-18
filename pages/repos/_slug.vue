@@ -31,7 +31,7 @@
 <script>
 export default {
   asyncData({ params, error, payload, $axios }) {
-    return { repo: payload }
+    if (payload) return { repo: payload }
   },
   data() {
     return { repoData: {} }
