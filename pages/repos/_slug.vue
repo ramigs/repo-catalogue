@@ -38,11 +38,10 @@ export default {
   },
   mounted() {
     this.$nextTick(async () => {
-      const repoUrlParts = this.repo.repoUrl.split('/')
-      const repoOwner = repoUrlParts[repoUrlParts.length - 2]
-      const repo = repoUrlParts[repoUrlParts.length - 1]
+      const repoOwner = this.repo.owner
+      const repoName = this.repo.name
       const result = await this.$axios.$get(
-        `https://api.github.com/repos/${repoOwner}/${repo}`
+        `https://api.github.com/repos/${repoOwner}/${repoName}`
       )
       this.repoData = result
     })

@@ -89,10 +89,14 @@ export default {
       const repos = result.data.map((repo) => repo.data)
       const routes = repos.map((repo) => {
         const repoUrlParts = repo.repoUrl.split('/')
-        const slug = slugify(repoUrlParts[repoUrlParts.length - 1], {
+        const repoOwner = repoUrlParts[repoUrlParts.length - 2]
+        const repoName = repoUrlParts[repoUrlParts.length - 1]
+        const slug = slugify(repoName, {
           remove: /[*+~.()'"!:@]/g
         })
         repo.slug = slug
+        repo.owner = repoOwner
+        repo.name = repoName
         return {
           route: '/repos/' + slug,
           payload: repo
