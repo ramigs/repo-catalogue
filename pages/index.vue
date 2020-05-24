@@ -19,7 +19,7 @@
           >
             <a :href="`/repos/${repo.slug}`">
               <figure
-                :style="{ maxWidth: '20%' }"
+                :style="{ maxWidth: '20%', margin: '0 auto', padding: '2em 0' }"
                 v-html="repo.svgLogo"
               ></figure>
             </a>
@@ -40,14 +40,9 @@
 
 <script>
 export default {
-  asyncData({ params, error, payload, $axios }) {
+  asyncData({ payload }) {
     return { repos: payload }
   }
 }
 </script>
-<style>
-figure {
-  margin: 0 auto;
-  padding: 2em 0;
-}
-</style>
+<style></style>

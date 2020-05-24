@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  asyncData({ params, error, payload, $axios }) {
+  asyncData({ payload }) {
     if (payload) return { repo: payload }
   },
   data() {
